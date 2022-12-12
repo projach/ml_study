@@ -33,12 +33,18 @@ with st.container():
         'Select the algorithm you want to use',
         ('algorithm 1', 'Algorithm 2', 'algorithm 3'))
 
+    st.session_state.disable = False
 
     with right_column:
-        cat_photo = st.file_uploader('Upload a png or a jpg photo of a cat', type=['png', 'jpg'])
+        holder = st.empty()
+        cat_photo = holder.file_uploader('Upload a png or a jpg photo of a cat', type=['png', 'jpg'])
         if cat_photo is not None:
             image = Image.open(cat_photo)
-            st.image(image,width=300)    
+            st.image(image,width=300)
+            #with this the file_uploader gets deleted try to find better solution
+            holder.empty()
+            
+        st.write(st.session_state.disable)       
         st.markdown(f"<h3 style='text-align: left;'>{first_prediction}</h3>", 
         unsafe_allow_html=True)
         st.markdown(f"<h3 style='text-align: left;'>{second_prediction}</h3>", 
