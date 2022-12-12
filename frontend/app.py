@@ -8,7 +8,7 @@ third_prediction = "5% Persian"
 st.set_page_config(page_title="Cat breed classification", page_icon=":cat:",layout="wide",)
 
 with st.container():
-    st.markdown("<h2 style='text-align: center; padding-top: 0px; margin-top: 0px;'>This is a dysertation project that classifies cat breeds with machine learning</h2>", 
+    st.markdown("<h2 style='text-align: center; padding-top: 0px; margin-top: 0px;'>This is a dissertation project that classifies cat breeds with machine learning</h2>", 
     unsafe_allow_html=True)
 
 with st.container():
