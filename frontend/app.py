@@ -36,13 +36,16 @@ with st.container():
     st.session_state.disable = False
 
     with right_column:
-        holder = st.empty()
-        cat_photo = holder.file_uploader('Upload a png or a jpg photo of a cat', type=['png', 'jpg'])
+        holder_photo = st.empty()
+        holder_button = st.empty()
+        cat_photo = holder_photo.file_uploader('Upload a png or a jpg photo of a cat', type=['png', 'jpg'])
+        start = holder_button.button("press when you are ready")
+        if start:
+            holder_button.empty()
+            holder_photo.empty()
         if cat_photo is not None:
             image = Image.open(cat_photo)
             st.image(image,width=300)
-            #with this the file_uploader gets deleted try to find better solution
-            holder.empty()
             
         st.write(st.session_state.disable)       
         st.markdown(f"<h3 style='text-align: left;'>{first_prediction}</h3>", 
