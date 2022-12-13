@@ -33,7 +33,7 @@ with st.container():
         'Select the algorithm you want to use',
         ('algorithm 1', 'Algorithm 2', 'algorithm 3'))
 
-    st.session_state.disable = False
+    
 
     with right_column:
         holder_photo = st.empty()
@@ -46,8 +46,7 @@ with st.container():
         if cat_photo is not None:
             image = Image.open(cat_photo)
             st.image(image,width=300)
-            
-        st.write(st.session_state.disable)       
+                  
         st.markdown(f"<h3 style='text-align: left;'>{first_prediction}</h3>", 
         unsafe_allow_html=True)
         st.markdown(f"<h3 style='text-align: left;'>{second_prediction}</h3>", 
